@@ -1,0 +1,11 @@
+import express from "express";
+import dotenv from "dotenv";
+import cors from "cors";
+import ErrorHandler from "./middleware/error.js";
+const app = express();
+app.use(cors());
+dotenv.config({ path: ".env" });
+import product from "./controller/product.controller.js";
+app.use("/api/v1/product", product);
+app.use(ErrorHandler);
+export default app;
